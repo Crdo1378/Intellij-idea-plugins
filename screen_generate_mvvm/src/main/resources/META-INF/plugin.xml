@@ -1,0 +1,40 @@
+<idea-plugin>
+    <id>org.example.Screen Generate MVVM</id>
+    <name>Screen Generate MVVM</name>
+    <vendor>FPT</vendor>
+
+    <description>Auto Generate Files for MVVM project. For Kotlin - Java</description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.kotlin</depends>
+
+    <idea-version since-build="201"/>
+    <extensions defaultExtensionNs="com.intellij">
+        <defaultProjectTypeProvider type="Android"/>
+        <projectConfigurable
+                instance="settings.SettingsViewImpl">
+        </projectConfigurable>
+        <projectService serviceInterface="settings.ScreenGeneratorComponent"
+                        serviceImplementation="settings.ScreenGeneratorComponent"/>
+    </extensions>
+
+    <actions>
+        <group id="ScreenGenerator.FileMenu"
+               text="Generate MVVM Project"
+               description="Generate MVVM Project">
+            <add-to-group group-id="FileMenu" anchor="last"/>
+            <action id="NewScreenAction"
+                    class="newscreen.NewScreenAction"
+                    text="Generate MVVM Project"
+                    description="Generate MVVM Project"/>
+
+            <action id="ShowNotificationId" class="ShowNotification" text="Show Notification"
+                    description="Show notification">
+                <add-to-group group-id="ToolsMenu" anchor="last"/>
+            </action>
+        </group>
+    </actions>
+</idea-plugin>
