@@ -1,9 +1,9 @@
-package newscreen
+package ui.newscreen
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys.VIRTUAL_FILE
-import newscreen.files.CurrentPath
+import data.file.CurrentPath
 
 class NewScreenAction : AnAction() {
     override fun actionPerformed(e: AnActionEvent) {

@@ -1,9 +1,6 @@
-package newscreen
-import newscreen.files.Directory
-import newscreen.files.File
-import newscreen.files.FileType
-import newscreen.files.SourceRoot
-import settings.SettingsRepository
+package data.file
+
+import data.repository.SettingsRepository
 
 interface FileCreator {
 
@@ -14,15 +11,10 @@ class FileCreatorImpl(private val settingsRepository: SettingsRepository) : File
 
     override fun createScreenFiles(sourceRoot: SourceRoot, packageName: String, screenName: String) {
         val subdirectory = findSubdirectory(sourceRoot, packageName)
-        val file = File("$screenName", "Test", FileType.KOTLIN)
-        subdirectory.addFile(file)
-        /*
-        settingsRepository.loadScreenElements().forEach {
-            val file = File("$screenName${it.name}", "Test")
+        settingsRepository.loadSettings().screenElements.forEach {
+            val file = File("$screenName${it.name}", it.body(screenName, packageName))
             subdirectory.addFile(file)
         }
-
-         */
     }
 
     private fun findSubdirectory(sourceRoot: SourceRoot, packageName: String): Directory {

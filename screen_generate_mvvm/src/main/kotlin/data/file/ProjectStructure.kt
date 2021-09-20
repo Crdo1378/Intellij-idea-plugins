@@ -1,4 +1,4 @@
-package newscreen.files
+package data.file
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.ProjectRootManager
@@ -10,8 +10,5 @@ interface ProjectStructure {
 
 class ProjectStructureImpl(private val project: Project) : ProjectStructure {
 
-    override fun findSourceRoots(): List<SourceRootImpl> {
-        return ProjectRootManager.getInstance(project).contentSourceRoots.map { SourceRootImpl(project, it) }
-    }
-
+    override fun findSourceRoots() = ProjectRootManager.getInstance(project).contentSourceRoots.map { SourceRootImpl(project, it) }
 }

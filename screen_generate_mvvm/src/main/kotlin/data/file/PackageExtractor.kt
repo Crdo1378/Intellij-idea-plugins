@@ -1,6 +1,6 @@
-package newscreen
+package data.file
 
-import newscreen.files.CurrentPath
+import data.repository.SourceRootRepository
 
 interface PackageExtractor {
 
