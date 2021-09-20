@@ -1,4 +1,4 @@
-package newscreen.files
+package data.file
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile

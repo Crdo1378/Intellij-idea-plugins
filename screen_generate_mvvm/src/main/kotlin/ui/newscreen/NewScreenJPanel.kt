@@ -1,4 +1,4 @@
-package newscreen
+package ui.newscreen
 
 import com.intellij.util.ui.FormBuilder
 import java.awt.BorderLayout

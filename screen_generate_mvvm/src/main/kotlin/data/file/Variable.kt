@@ -1,4 +1,4 @@
-package newscreen.files
+package data.file
 
 enum class Variable(val value: String, val description: String) {
     NAME("%screenName%", "Name of the screen, e.g. ScreenName"),

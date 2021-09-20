@@ -20,6 +20,10 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
 
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     version '2020.3.3'

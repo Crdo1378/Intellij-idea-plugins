@@ -1,7 +1,7 @@
-package newscreen
+package data.repository
 
-import newscreen.files.ProjectStructure
-import newscreen.files.SourceRoot
+import data.file.ProjectStructure
+import data.file.SourceRoot
 
 interface SourceRootRepository {
 

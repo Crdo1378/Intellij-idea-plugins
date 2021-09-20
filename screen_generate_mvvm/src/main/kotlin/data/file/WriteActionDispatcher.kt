@@ -1,4 +1,4 @@
-package newscreen
+package data.file
 
 import com.intellij.openapi.application.ApplicationManager
 

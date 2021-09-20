@@ -1,4 +1,4 @@
-package newscreen
+package ui.newscreen
 
 interface NewScreenView {
 
