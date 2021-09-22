@@ -1,40 +1,47 @@
 <idea-plugin>
-    <id>org.example.Screen Generate MVVM</id>
-    <name>Screen Generate MVVM</name>
-    <vendor>FPT</vendor>
+    <id>pl.gmat.screengenerator</id>
+    <name>Screen Generator</name>
+    <vendor email="grzesiek.matyszczak@gmail.com">Grzegorz Matyszczak</vendor>
+    <idea-version since-build="182"/>
 
-    <description>Auto Generate Files for MVVM project. For Kotlin - Java</description>
+    <description><![CDATA[
+    This plugin helps you automate your everyday development by generating all necessary files for your project's architecture
+    when you are creating a new screen.<br><br>
 
-    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
+    For example, you are using MVP architecture and you are creating the Main screen. You can set up the plugin to generate for you:
+    <ul>
+    <li>MainActivity.kt</li>
+    <li>MainView.kt</li>
+    <li>MainPresenter.kt</li>
+    <li>activity_main.xml</li>
+    </ul>
+    And you can also set content of each file!<br><br>
+
+    Plugin is fully open-source, you can find it here: <a href="https://github.com/gmatyszczak/screen-generator-plugin">https://github.com/gmatyszczak/screen-generator-plugin</a>.<br>
+    Feel free to open an issue there if you notice any bug or have any feature request.
+    ]]></description>
+
     <depends>com.intellij.modules.lang</depends>
-    <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.kotlin</depends>
 
-    <idea-version since-build="201"/>
     <extensions defaultExtensionNs="com.intellij">
         <defaultProjectTypeProvider type="Android"/>
         <projectConfigurable
-                instance="settings.SettingsViewImpl">
+                instance="ui.settings.SettingsConfigurable">
         </projectConfigurable>
-        <projectService serviceInterface="settings.ScreenGeneratorComponent"
-                        serviceImplementation="settings.ScreenGeneratorComponent"/>
+        <projectService serviceInterface="data.ScreenGeneratorComponent" serviceImplementation="data.ScreenGeneratorComponent"/>
     </extensions>
 
     <actions>
         <group id="ScreenGenerator.FileMenu"
-               text="Generate MVVM Project"
-               description="Generate MVVM Project">
-            <add-to-group group-id="FileMenu" anchor="last"/>
+               text="Screen"
+               description="Screen Generator Plugin">
+            <add-to-group group-id="NewGroup" anchor="last"/>
+            <separator />
             <action id="NewScreenAction"
-                    class="newscreen.NewScreenAction"
-                    text="Generate MVVM Project"
-                    description="Generate MVVM Project"/>
-
-            <action id="ShowNotificationId" class="ShowNotification" text="Show Notification"
-                    description="Show notification">
-                <add-to-group group-id="ToolsMenu" anchor="last"/>
-            </action>
+                    class="ui.newscreen.NewScreenAnAction"
+                    text="Screen"
+                    description="Screen Generator Plugin"/>
         </group>
     </actions>
 </idea-plugin>
