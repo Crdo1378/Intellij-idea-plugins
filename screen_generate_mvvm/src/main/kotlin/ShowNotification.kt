@@ -8,7 +8,7 @@ import com.intellij.openapi.project.Project
 class ShowNotification(private val message: String ?=null) : AnAction() {
     override fun actionPerformed(e: AnActionEvent) {
         if (message == null){
-            e.project?.showNotification("Hello")
+            e.project?.showNotification("Hello Everybody")
         }
         else{
             e.project?.showNotification(message)
